@@ -13,7 +13,7 @@ A comprehensive fitness tracking application built for Mergington High School to
 ## Technology Stack
 
 ### Backend
-- **Framework**: Django 4.1.7
+- **Framework**: Django 4.2.26
 - **API**: Django REST Framework 3.14.0
 - **Database**: SQLite (development)
 - **Authentication**: Django AllAuth
