@@ -2,12 +2,19 @@
 
 # Virtual Environment
 venv
+octofit-tracker/backend/venv/
 
-# octofit tracker app
-# octfit-tracker
+# Database
+*.sqlite3
+db.sqlite3
+
+# Python files
+*.pyc
+__pycache__/
 
 # React node_modules
 node_modules
+octofit-tracker/frontend/node_modules/
 /.pnp
 .pnp.js
 
@@ -16,6 +23,7 @@ node_modules
 
 # production
 /build
+octofit-tracker/frontend/build/
 
 # misc
 .DS_Store
@@ -27,7 +35,3 @@ node_modules
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
-
-# Python files
-*.pyc
-__pycache__/
