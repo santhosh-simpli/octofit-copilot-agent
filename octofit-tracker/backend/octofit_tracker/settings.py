@@ -21,7 +21,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-j($_xpu0o5_u504egzi#uc3xtow(@dn!o6e=xga4fw3sg&ssha'
+SECRET_KEY = os.environ.get('SECRET_KEY', 'django-insecure-j($_xpu0o5_u504egzi#uc3xtow(@dn!o6e=xga4fw3sg&ssha')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -132,8 +132,16 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-# CORS settings
-CORS_ALLOW_ALL_ORIGINS = True  # For development only
+# CORS settings - For development only, in production specify exact origins
+if os.environ.get('CODESPACE_NAME'):
+    CORS_ALLOWED_ORIGINS = [
+        f"https://{os.environ.get('CODESPACE_NAME')}-3000.app.github.dev",
+    ]
+else:
+    CORS_ALLOWED_ORIGINS = [
+        "http://localhost:3000",
+        "http://127.0.0.1:3000",
+    ]
 
 # REST Framework settings
 REST_FRAMEWORK = {
